@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Krewe & Kin — A Website Studio for Krewes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Cormorant+Garamond:ital@1&family=EB+Garamond&display=swap" rel="stylesheet">
+  <style>
+  :root{
+    --purple-900:#2d0a4e;
+  --purple-700:#4b1878;
+  --purple-500:#6f2da8;
+  --gold:#d4af37;
+      --gold-light:#f3d873;
+      --gold-deep:#c9971a;
+      --green-500:#1f8a4c;
+  --cream:#faf6ef;
+      --ink:#241536;
+  --muted:#6a5f7a;
+  --shadow:0 12px 32px rgba(45,10,78,.25);
+  --display:"Cinzel", Georgia, serif;
+  --fancy:"Cormorant Garamond", Georgia, serif;
+  --body:"EB Garamond", Georgia, serif;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+    margin:0;
+  font-family:var(--body);
+  color:var(--ink);
+  background:var(--cream);
+  background-image:
+    radial-gradient(900px 500px at 10% -10%, #f6ecff 0%, rgba(246,236,255,0) 60%),
+        radial-gradient(800px 500px at 100% 0%, #eafff1 0%, rgba(234,255,241,0) 55%),
+        linear-gradient(180deg,#faf6ef 0%, #f3ecff 100%);
+      line-height:1.7;
+}
+header{
+    display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:22px 6vw;
+  background:linear-gradient(120deg,var(--purple-900),var(--purple-700));
+  color:#fff;
+    box-shadow:var(--shadow);
+}
+.brand{display:flex;align-items:center;gap:14px;}
+.crest{
+    width:46px;height:46px;border-radius:50%;
+  background:conic-gradient(from 180deg, var(--gold), var(--green-500), var(--purple-500), var(--gold));
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--display);
+  font-weight:700;color:var(--purple-900);
+  font-size:16px;
+  box-shadow:0 0 0 3px rgba(255,255,255,.25);
+}
+.brand h1{
+    font-family:var(--display);
+  font-size:22px;
+  margin:0;
+  letter-spacing:.5px;
+}
+.brand span{
+    display:block;
+  font-family:var(--fancy);
+  font-style:italic;
+  font-size:13px;
+  color:var(--gold-light);
+}
+nav a{
+    color:#fff;
+      text-decoration:none;
+  margin-left:28px;
+  font-size:15px;
+  letter-spacing:.3px;
+  opacity:.9;
+}
+nav a:hover{opacity:1;text-decoration:underline;}
+.hero{
+    text-align:center;
+  padding:100px 6vw 80px;
+  position:relative;
+  overflow:hidden;
+}
+.hero:before{
+    content:"";
+  position:absolute; inset:0;
+  background:linear-gradient(90deg,#7c3aed,#d4af37,#1f8a4c,#7c3aed);
+      opacity:.06;
+      z-index:0;
+}
+.hero *{position:relative;z-index:1;}
+.eyebrow{
+    font-family:var(--fancy);
+  font-style:italic;
+  color:var(--purple-700);
+  font-size:20px;
+  margin-bottom:10px;
+}
+h2.headline{
+  font-family:var(--display);
+  font-size:clamp(32px,5vw,58px);
+      margin:0 0 20px;
+  color:var(--purple-900);
+          line-height:1.15;
+}
+h2.headline em{
+    font-style:normal;
+  background:linear-gradient(90deg,var(--purple-500),var(--gold-deep));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.lede{
+    max-width:640px;
+  margin:0 auto 40px;
+  font-size:19px;
+  color:var(--muted);
+}
+.cta-row{
+    display:flex;
+  gap:18px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+.btn{
+    display:inline-block;
+      padding:15px 30px;
+  border-radius:999px;
+  font-family:var(--display);
+  font-size:15px;
+  text-decoration:none;
+  letter-spacing:.3px;
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+.btn:hover{transform:translateY(-2px);}
+.btn-primary{
+  background:var(--purple-900);
+  color:#fff;
+    box-shadow:var(--shadow);
+}
+.btn-ghost{
+  background:transparent;
+  color:var(--purple-900);
+    border:2px solid var(--purple-900);
+}
+.demo-ticket{
+    margin:60px auto 0;
+  max-width:560px;
+  background:#fff;
+  border-radius:18px;
+  box-shadow:var(--shadow);
+  display:flex;
+  align-items:stretch;
+  text-decoration:none;
+    color:inherit;
+  overflow:hidden;
+  border:2px dashed var(--gold-deep);
+  transition:transform .15s ease;
+    }
+  .demo-ticket:hover{transform:translateY(-3px) rotate(-.4deg);}
+.demo-ticket .stub{
+  background:linear-gradient(160deg,var(--purple-700),var(--purple-900));
+  color:#fff;
+    padding:22px 16px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  font-family:var(--display);
+  font-size:13px;
+  letter-spacing:2px;
+  writing-mode:vertical-rl;
+  text-transform:uppercase;
+}
+.demo-ticket .body{
+  padding:22px 26px;
+  text-align:left;
+}
+.demo-ticket .body .tag{
+  font-family:var(--fancy);
+  font-style:italic;
+  color:var(--purple-700);
+  font-size:14px;
+  margin-bottom:4px;
+}
+.demo-ticket .body h3{
+    font-family:var(--display);
+  margin:0 0 6px;
+  font-size:21px;
+  color:var(--purple-900);
+}
+.demo-ticket .body p{
+    margin:0;
+  color:var(--muted);
+  font-size:15px;
+}
+section.services{
+  max-width:1080px;
+  margin:0 auto;
+  padding:70px 6vw;
+}
+section.services h3.section-title{
+    text-align:center;
+  font-family:var(--display);
+  font-size:30px;
+  color:var(--purple-900);
+  margin-bottom:44px;
+}
+.grid{
+    display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:26px;
+  }
+.card{
+    background:#fff;
+      border-radius:14px;
+  padding:28px 24px;
+  box-shadow:0 6px 20px rgba(45,10,78,.08);
+  border-top:4px solid var(--gold);
+}
+.card h4{
+    font-family:var(--display);
+  font-size:17px;
+  margin:0 0 10px;
+  color:var(--purple-900);
+}
+.card p{
+    margin:0;
+  font-size:15px;
+  color:var(--muted);
+}
+footer{
+    text-align:center;
+  padding:40px 6vw 50px;
+  color:var(--muted);
+  font-size:14px;
+}
+footer strong{color:var(--purple-900);}
+</style>
+  </head>
+  <body>
+  <header>
+    <div class="brand">
+      <div class="crest">K&amp;K</div>
+      <div>
+        <h1>Krewe &amp; Kin</h1>
+        <span>A Website Studio for Krewes</span>
+    </div>
+  </div>
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#demo">See a Demo</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <p class="eyebrow">Laissez les bons temps rouler — online, too.</p>
+    <h2 class="headline">Every krewe has a story.<br><em>Let's build it a home.</em></h2>
+    <p class="lede">Krewe &amp; Kin designs and builds custom websites for Mardi Gras krewes — member portals, dues and RSVPs, parade schedules, galleries, and the kind of charm that makes your krewe feel like itself online.</p>
+  <div class="cta-row">
+    <a class="btn btn-primary" href="#demo">Peek at a Live Krewe Site</a>
+      <a class="btn btn-ghost" href="#services">What We Build</a>
+  </div>
+
+  <a id="demo" class="demo-ticket" href="index.html">
+      <div class="stub">Admit One</div>
+      <div class="body">
+        <p class="tag">Step right up —</p>
+      <h3>Click through the demo</h3>
+      <p>Tour the Krewe of Unicorns, a full fictional krewe site built on our platform: events, member area, galleries, and more.</p>
+    </div>
+    </a>
+  </section>
+
+  <section class="services" id="services">
+    <h3 class="section-title">What we build for krewes</h3>
+  <div class="grid">
+    <div class="card">
+      <h4>Custom Krewe Websites</h4>
+      <p>A site that looks and feels like your krewe, not a template — crest, colors, and traditions included.</p>
+    </div>
+    <div class="card">
+      <h4>Member Portals &amp; Dues</h4>
+        <p>Directories, RSVPs, dues tracking, and member-only pages your officers will actually enjoy using.</p>
+    </div>
+    <div class="card">
+      <h4>Events &amp; Parade Pages</h4>
+      <p>Parade routes, ball invitations, and event calendars that keep every rider and reveler in the loop.</p>
+      </div>
+      <div class="card">
+        <h4>Galleries &amp; Media</h4>
+        <p>Photo and video galleries so decades of throws, floats, and celebrations stay easy to find and share.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Built with 🎭 by <strong>Krewe &amp; Kin</strong> — a website studio for krewes.
+  </footer>
+  </body>
+  </html>
+  
