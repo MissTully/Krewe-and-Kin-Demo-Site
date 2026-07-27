@@ -1398,7 +1398,14 @@
       var val=box.querySelector('.bfVal').value; var desc=box.querySelector('.bfDesc').value.trim();
       var raffle=MY_RAFFLES.find(r=>r.id===raffleId);
       if(b){ b.name=name; b.estimated_value=val?parseFloat(val):null; b.description=desc; }
-      else if(raffle){ raffle.baskets=raffle.baskets||[]; raffle.baskets.push({ id:'mb'+Date.now(), name, estimated_value:val?parseFloat(val):null, description:desc, tickets:0, winner_name:null, image_url:null }); }
+      else if(raffle){
+        raffle.baskets=raffle.baskets||[];
+        // Same basket object in both stores: raffle.baskets drives the manage
+        // panel; RAFFLE_BASKETS drives the public card + officer draw tools.
+        var nb={ id:'mb'+Date.now(), raffle_event_id:raffleId, name, estimated_value:val?parseFloat(val):null, description:desc, tickets:0, winner_name:null, display_order:raffle.baskets.length+1, image_url:null };
+        raffle.baskets.push(nb);
+        RAFFLE_BASKETS.push(nb);
+      }
       renderRaffles();
     };
     return box;
@@ -1433,8 +1440,11 @@
       var price=parseFloat(document.getElementById("crPrice").value||"1");
       var desc=document.getElementById("crDesc").value.trim();
       var id='m'+Date.now();
-      MY_RAFFLES.push({ id, name, raffle_type:type, is_active:true, mine:true, drawn_at:null, winner_name:null, baskets:[] });
-      RAFFLE_EVENTS.push({ id, name, raffle_type:type, description:desc||null, is_active:true, ticket_price:price, event_date:null, pot_tickets:0, drawn_at:null, winner_name:null });
+      // One shared object lives in both lists so the public raffle card and the
+      // manage panel never drift apart (drawing a winner / editing stays in sync).
+      var raffle={ id, name, raffle_type:type, description:desc||null, is_active:true, mine:true, ticket_price:price, event_date:null, pot_tickets:0, drawn_at:null, winner_name:null, baskets:[] };
+      MY_RAFFLES.push(raffle);
+      RAFFLE_EVENTS.push(raffle);
       renderRaffles();
     };
   }
@@ -1472,7 +1482,7 @@
             '</div>';
           row.querySelector('.mrEditB').onclick=function(){ var fm=makeBasketForm(e.id,b); row.parentNode.insertBefore(fm,row.nextSibling); };
           var dr=row.querySelector('.mrDrawB'); if(dr) dr.onclick=function(){ if(!confirm('Draw a winner for "'+b.name+'" now? This is final.')) return; b.winner_name=pickWinner(); renderRaffles(); };
-          var de=row.querySelector('.mrDelB'); if(de) de.onclick=function(){ if(!confirm('Delete "'+b.name+'"?')) return; e.baskets=e.baskets.filter(x=>x!==b); renderRaffles(); };
+          var de=row.querySelector('.mrDelB'); if(de) de.onclick=function(){ if(!confirm('Delete "'+b.name+'"?')) return; e.baskets=e.baskets.filter(x=>x!==b); var gi=RAFFLE_BASKETS.indexOf(b); if(gi>-1) RAFFLE_BASKETS.splice(gi,1); renderRaffles(); };
           bw.appendChild(row);
         });
         if(!(e.baskets||[]).length){ bw.innerHTML='<p class="empty" style="margin:0;">No baskets yet. Add your first below.</p>'; }
