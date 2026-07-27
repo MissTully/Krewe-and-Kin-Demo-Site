@@ -16,3 +16,10 @@ desktop.ini
 
 # Raw AI source art kept in the Shamrock repo; optimized copies live in assets/img/photos/
 source-images/
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
