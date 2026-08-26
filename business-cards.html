@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Krewe &amp; Kin — Printable Business Cards (Avery 5371)</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="assets/img/logo-krewe-and-kin.png">
+<!-- Brand fonts are self-hosted on purpose: this page has to render identically
+     the moment it is printed, with no CDN round-trip and no offline surprises. -->
+<link rel="stylesheet" href="assets/fonts/krewe-fonts.css">
+<style>
+/* ============================================================
+   KREWE & KIN — printable business cards
+   Avery 5371 / 8371 / 8871 / 28877 — 2" x 3.5", 10 per US Letter sheet
+   Grid: 2 columns x 5 rows · top/bottom margin 0.5" · side margins 0.75"
+
+   Every dimension below is in physical units (in / pt) so the browser
+   prints at true size. Do NOT convert these to px.
+   ============================================================ */
+:root{
+  /* Brand tokens — lifted from welcome.html so the cards match the site */
+  --ground:  #070D0E;
+  --bone:    #F9DDB8;
+  --paper:   #FBEADA;
+  --gold:    #C07C22;
+  --gold-lt: #E3A64C;
+  --red:     #B12719;
+  --ink:     #17110D;
+  --ink-2:   #55412C;
+
+  --display: "Fraunces", "Hoefler Text", Georgia, serif;
+  --body:    "Bitter", "Source Serif 4", Georgia, serif;
+  --util:    "Barlow Condensed", "Oswald", "Arial Narrow", sans-serif;
+
+  /* Avery 5371 geometry */
+  --card-w: 3.5in;
+  --card-h: 2in;
+  --sheet-mx: 0.75in;
+  --sheet-my: 0.5in;
+  /* Keep all content inside this from the trim edge */
+  --safe: 0.16in;
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+html,body{ margin:0; }
+body{
+  background:#4a4a4a;
+  font-family:var(--body);
+  color:var(--ink);
+}
+img{ display:block; max-width:100%; }
+
+/* ============================================================
+   Screen-only control panel
+   ============================================================ */
+.controls{
+  position:sticky; top:0; z-index:20;
+  background:var(--ground); color:var(--bone);
+  padding:14px 20px; border-bottom:2px solid var(--gold);
+  display:flex; flex-wrap:wrap; gap:18px; align-items:center;
+  font-family:var(--util); letter-spacing:.06em;
+}
+.controls h1{
+  font-family:var(--display); font-size:18px; margin:0 auto 0 0;
+  letter-spacing:0; font-weight:700;
+}
+.controls fieldset{ border:1px solid rgba(249,221,184,.28); border-radius:6px; padding:6px 12px 8px; margin:0; }
+.controls legend{ font-size:10px; text-transform:uppercase; letter-spacing:.18em; color:var(--gold-lt); padding:0 6px; }
+.controls label{ font-size:14px; margin-right:12px; cursor:pointer; white-space:nowrap; }
+.controls label:last-child{ margin-right:0; }
+.controls button{
+  font-family:var(--util); font-size:15px; font-weight:600;
+  text-transform:uppercase; letter-spacing:.14em;
+  background:var(--gold); color:#2A1B06; border:0; border-radius:6px;
+  padding:10px 20px; cursor:pointer;
+}
+.controls button:hover{ background:var(--gold-lt); }
+.hint{
+  background:var(--bone); color:var(--ink);
+  padding:14px 20px; font-size:14px; line-height:1.6;
+  border-bottom:1px solid rgba(23,17,13,.15);
+}
+.hint b{ font-family:var(--util); text-transform:uppercase; letter-spacing:.1em; }
+
+/* ============================================================
+   The sheet
+   ============================================================ */
+.sheet{
+  width:8.5in; height:11in;
+  padding:var(--sheet-my) var(--sheet-mx);
+  margin:22px auto;
+  background:#fff;
+  display:grid;
+  grid-template-columns:repeat(2, var(--card-w));
+  grid-template-rows:repeat(5, var(--card-h));
+  box-shadow:0 6px 26px rgba(0,0,0,.45);
+}
+.sheet-label{
+  max-width:8.5in; margin:26px auto -8px; color:#fff;
+  font-family:var(--util); text-transform:uppercase; letter-spacing:.2em; font-size:13px;
+}
+
+/* ============================================================
+   The card
+   ============================================================ */
+.card{
+  width:var(--card-w); height:var(--card-h);
+  position:relative; overflow:hidden;
+  background:var(--ground); color:var(--bone);
+  padding:var(--safe);
+  display:flex;
+}
+/* Bone colourway — far more forgiving on perforated stock, see the notes */
+.theme-bone .card{ background:var(--paper); color:var(--ink); }
+
+/* Cut guides: hairlines on the trim edge, screen + print, toggleable */
+.guides .card{ outline:0.5pt dashed rgba(128,128,128,.55); outline-offset:-0.25pt; }
+
+.card .eyebrow{
+  font-family:var(--util); font-weight:600; text-transform:uppercase;
+  letter-spacing:.19em; font-size:5.2pt; line-height:1.2;
+  color:var(--gold);
+}
+.theme-bone .card .eyebrow{ color:#7A4E0F; }
+
+.card .name{
+  font-family:var(--display); font-weight:700;
+  font-size:13.5pt; line-height:1.05; letter-spacing:-.01em;
+  /* Match the display treatment used across the site */
+  font-variation-settings:"SOFT" 0,"WONK" 1,"opsz" 96;
+  margin:.035in 0 .018in;
+}
+.card .role{
+  font-family:var(--body); font-size:6.4pt; line-height:1.35;
+  color:rgba(249,221,184,.82);
+}
+.theme-bone .card .role{ color:var(--ink-2); }
+
+.rule{
+  height:0.75pt; background:var(--gold); opacity:.85;
+  margin:.07in 0; width:100%;
+}
+
+.card .contact{
+  font-family:var(--util); font-weight:500;
+  font-size:8.2pt; line-height:1.42; letter-spacing:.028em;
+  list-style:none; margin:0; padding:0;
+}
+.card .contact li{ white-space:nowrap; }
+.card .contact .site{ color:var(--gold-lt); font-weight:600; letter-spacing:.06em; }
+.theme-bone .card .contact .site{ color:#7A4E0F; }
+
+/* ---- QR block ---- */
+.qr{
+  flex:0 0 auto; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; gap:.045in;
+}
+.qr .tile{
+  background:#fff; padding:0.02in; border-radius:0.03in;
+  width:0.95in; height:0.95in;
+}
+.qr .tile img{ width:100%; height:100%; }
+.qr .cap{
+  font-family:var(--util); font-weight:600; text-transform:uppercase;
+  letter-spacing:.13em; font-size:5pt; line-height:1.25; text-align:center;
+  color:var(--gold-lt);
+}
+.theme-bone .qr .cap{ color:#7A4E0F; }
+
+/* ============================================================
+   Face A — logo hero (front of a two-sided card)
+   ============================================================ */
+.card--hero{
+  flex-direction:column; align-items:center; justify-content:center;
+  gap:.075in; padding:0.1in;
+}
+/* The artwork is trimmed to its own bounding box, so this width is the
+   width of the lettering itself — no baked-in padding to compensate for. */
+.card--hero .mark{ width:2.2in; }
+/* On bone stock the logo keeps its own ink plate — reads as deliberate */
+.theme-bone .card--hero .mark{ border-radius:0.05in; }
+.card--hero .strap{
+  font-family:var(--util); font-weight:600; text-transform:uppercase;
+  letter-spacing:.26em; font-size:5.6pt; color:var(--gold);
+}
+.theme-bone .card--hero .strap{ color:#7A4E0F; }
+
+/* ============================================================
+   Face B — contact + QR (back of a two-sided card)
+   ============================================================ */
+.card--contact{ align-items:center; gap:.13in; }
+.card--contact .info{ flex:1 1 auto; min-width:0; }
+
+/* ============================================================
+   Face C — all-in-one (single-sided card)
+   ============================================================ */
+/* This face carries mark + name + role + three contact lines in 2in of height,
+   so every value here is tuned to keep the stack inside the 1/8in safe area.
+   Re-check the clearances if you change any of them. */
+.card--solo{ align-items:center; gap:.12in; }
+.card--solo .info{ flex:1 1 auto; min-width:0; }
+.card--solo .mark{ width:1.2in; margin-bottom:.04in; }
+.card--solo .name{ font-size:10.5pt; margin:.018in 0 .01in; }
+.card--solo .role{ font-size:6.2pt; line-height:1.3; }
+.card--solo .contact{ font-size:7.4pt; line-height:1.32; }
+.card--solo .rule{ margin:.042in 0; }
+.card--solo .qr .tile{ width:0.88in; height:0.88in; }
+
+/* ============================================================
+   Sheet selection — screen shows all, print honours the choice
+   ============================================================ */
+.sheet[hidden]{ display:none; }
+
+@media print{
+  @page{ size:8.5in 11in; margin:0; }
+  html,body{ background:#fff; }
+  .controls,.hint,.sheet-label{ display:none !important; }
+  .sheet{
+    margin:0; box-shadow:none;
+    break-after:page; page-break-after:always;
+  }
+  .sheet:last-of-type{ break-after:auto; page-break-after:auto; }
+  /* Force the ink backgrounds to actually print */
+  .card{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+}
+</style>
+</head>
+<body class="guides">
+
+<div class="controls">
+  <h1>Krewe &amp; Kin · Business Cards</h1>
+
+  <fieldset>
+    <legend>Print</legend>
+    <label><input type="radio" name="which" value="two" checked> Two-sided</label>
+    <label><input type="radio" name="which" value="front"> Front only</label>
+    <label><input type="radio" name="which" value="back"> Back only</label>
+    <label><input type="radio" name="which" value="solo"> Single-sided</label>
+  </fieldset>
+
+  <fieldset>
+    <legend>Colourway</legend>
+    <label><input type="radio" name="theme" value="ink" checked> Ink</label>
+    <label><input type="radio" name="theme" value="bone"> Bone</label>
+  </fieldset>
+
+  <fieldset>
+    <legend>Guides</legend>
+    <label><input type="checkbox" id="guides" checked> Cut lines</label>
+  </fieldset>
+
+  <button type="button" onclick="window.print()">Print</button>
+</div>
+
+<div class="hint">
+  <b>Before you print:</b> Avery <b>5371 / 8371 / 8871 / 28877</b> (2&Prime; × 3.5&Prime;, 10 per sheet).
+  In the print dialog set paper to <b>US Letter</b>, scale to <b>100%</b> (not “Fit to page”),
+  margins to <b>None</b>, and turn <b>Background graphics on</b> — without it the ink colourway prints white.
+  Run one plain-paper test and hold it against a blank Avery sheet before committing card stock.
+  Turn cut lines off for the real run.
+</div>
+
+<!-- ============================================================
+     SHEET 1 — FRONT (logo hero)
+     ============================================================ -->
+<div class="sheet-label" data-for="front">Sheet 1 — Front · logo</div>
+<div class="sheet" id="sheet-front">
+  <!-- 10 identical cards; template cloned by script below -->
+</div>
+
+<!-- ============================================================
+     SHEET 2 — BACK (contact + QR)
+     ============================================================ -->
+<div class="sheet-label" data-for="back">Sheet 2 — Back · contact &amp; QR</div>
+<div class="sheet" id="sheet-back"></div>
+
+<!-- ============================================================
+     SHEET 3 — SINGLE-SIDED (everything on one face)
+     ============================================================ -->
+<div class="sheet-label" data-for="solo">Sheet 3 — Single-sided · everything on one face</div>
+<div class="sheet" id="sheet-solo"></div>
+
+<!-- ============================================================
+     Card templates
+     ============================================================ -->
+<template id="tpl-front">
+  <div class="card card--hero">
+    <img class="mark" src="assets/img/logo-krewe-and-kin.png" alt="Krewe &amp; Kin">
+    <div class="strap">A Website Studio for Krewes</div>
+  </div>
+</template>
+
+<template id="tpl-back">
+  <div class="card card--contact">
+    <div class="info">
+      <div class="eyebrow">Tampa Bay · Built by a Krewe Member</div>
+      <div class="name">Missy Tully</div>
+      <div class="role">Founder, Krewe &amp; Kin<br>Krewe of Shamrock since 2019</div>
+      <div class="rule"></div>
+      <ul class="contact">
+        <li>813-416-1641</li>
+        <li>kreweandkin@gmail.com</li>
+        <li class="site">kreweandkin.com</li>
+      </ul>
+    </div>
+    <div class="qr">
+      <div class="tile"><img src="assets/img/qr-kreweandkin.svg" alt="QR code linking to kreweandkin.com"></div>
+      <div class="cap">Scan · See the<br>demo krewe</div>
+    </div>
+  </div>
+</template>
+
+<template id="tpl-solo">
+  <div class="card card--solo">
+    <div class="info">
+      <img class="mark" src="assets/img/logo-krewe-and-kin.png" alt="Krewe &amp; Kin">
+      <div class="name">Missy Tully</div>
+      <div class="role">Founder · A website studio for krewes</div>
+      <div class="rule"></div>
+      <ul class="contact">
+        <li>813-416-1641</li>
+        <li>kreweandkin@gmail.com</li>
+        <li class="site">kreweandkin.com</li>
+      </ul>
+    </div>
+    <div class="qr">
+      <div class="tile"><img src="assets/img/qr-kreweandkin.svg" alt="QR code linking to kreweandkin.com"></div>
+      <div class="cap">Scan · See the<br>demo krewe</div>
+    </div>
+  </div>
+</template>
+
+<script>
+/* Fill each sheet with 10 copies of its card, then wire the controls. */
+(function(){
+  const PER_SHEET = 10;
+
+  for (const key of ['front','back','solo']) {
+    const sheet = document.getElementById('sheet-' + key);
+    const tpl   = document.getElementById('tpl-' + key);
+    for (let i = 0; i < PER_SHEET; i++) {
+      sheet.appendChild(tpl.content.cloneNode(true));
+    }
+  }
+
+  /* Which sheets each print mode includes. Every card on a sheet is
+     identical, so the back sheet needs no column mirroring for duplex. */
+  const MODES = {
+    two:   ['front','back'],
+    front: ['front'],
+    back:  ['back'],
+    solo:  ['solo'],
+  };
+
+  function applyMode(mode){
+    const shown = MODES[mode] || MODES.two;
+    for (const key of ['front','back','solo']) {
+      const on = shown.includes(key);
+      document.getElementById('sheet-' + key).hidden = !on;
+      document.querySelector('.sheet-label[data-for="' + key + '"]').hidden = !on;
+    }
+  }
+
+  document.querySelectorAll('input[name="which"]').forEach(el => {
+    el.addEventListener('change', () => applyMode(el.value));
+  });
+  document.querySelectorAll('input[name="theme"]').forEach(el => {
+    el.addEventListener('change', () => {
+      document.body.classList.toggle('theme-bone', el.value === 'bone');
+    });
+  });
+  document.getElementById('guides').addEventListener('change', e => {
+    document.body.classList.toggle('guides', e.target.checked);
+  });
+
+  applyMode('two');
+})();
+</script>
+</body>
+</html>
