@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="assets/img/logo-unicorn.png" />
 <title>Krewe of Unicorns · Shop</title>
-<meta name="description" content="Krewe of Unicorns gear: krewe medallions, rainbow beads, unicorn-horn headbands, member tees, glitter capes, enamel pins, and totes." />
+<meta name="description" content="Krewe of Unicorns gear: the Unicorn Sparkle Tumbler by Mistress of Arts, krewe medallions, rainbow beads, unicorn-horn headbands, member tees, glitter capes, enamel pins, and totes." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=EB+Garamond:ital@0;1&display=swap" rel="stylesheet">
@@ -22,6 +22,12 @@
 .product .price{ font-family:var(--display); font-size:20px; color:var(--gold-deep); font-weight:700; }
 .product select{ padding:8px 10px; border:1px solid rgba(168,128,28,.5); border-radius:9px; font-size:14px; }
 .product .add{ margin-top:4px; }
+.product .maker{ font-size:12.5px; color:var(--gold-deep); font-style:italic; letter-spacing:.2px; }
+.maker-card{ background:#fff; border:1px solid var(--gold); border-radius:16px; padding:22px 26px; max-width:760px; margin:34px auto 0; box-shadow:var(--shadow-sm); text-align:center; }
+.maker-card h3{ margin:0 0 4px; font-family:var(--display); font-size:23px; color:var(--green-800); }
+.maker-card .studio{ font-family:var(--display); font-size:15px; color:var(--gold-deep); letter-spacing:.6px; margin-bottom:10px; }
+.maker-card p{ margin:0 0 10px; font-size:15px; color:var(--muted); }
+.maker-card p:last-child{ margin-bottom:0; }
 .cartbar{ position:fixed; right:18px; bottom:90px; z-index:60; }
 .cartbar button{ background:linear-gradient(180deg,var(--gold-light),var(--gold)); color:#3a2c00; border:2px solid var(--gold-deep); border-radius:999px; padding:12px 20px; font-family:var(--display); font-weight:700; cursor:pointer; box-shadow:0 8px 20px rgba(168,128,28,.45); font-size:15px; }
 .cart-panel{ position:fixed; inset:0; z-index:120; display:none; align-items:center; justify-content:center; background:rgba(76,29,149,.6); padding:20px; }
@@ -93,6 +99,13 @@
   <div class="section-title" style="margin-top:30px;"><h2>Krewe Gear</h2><p class="sub">Officially crested, Tampa-proud, and full of sparkle</p></div>
   <div class="knot-divider"><span class="knot"></span></div>
   <div class="shop-grid" id="shopGrid"></div>
+  <div class="maker-card">
+    <h3>Welcome to Mistress of Arts &#127912;</h3>
+    <div class="studio">From the depths of The Sparklatory &#10024;</div>
+    <p>I bring your visions to life with bespoke treasures. I specialize in Gasparilla Krewe merchandise.</p>
+    <p>Whether for weddings, birthdays, decor, or any occasion, your dream is my blueprint.</p>
+    <p>Share your vision; let&#39;s create magic. &#128081;</p>
+  </div>
 </main>
 <div class="cartbar"><button id="cartBtn" onclick="openCart()">&#x1F6D2; Cart (<span id="cartCount">0</span>)</button></div>
 <div class="cart-panel" id="cartPanel">
@@ -133,6 +146,7 @@
 <script src="assets/krewe.js" defer></script>
 <script>
 var PRODUCTS=[
+  {id:"tumbler",    name:"Unicorn Sparkle Tumbler",price:48,  img:"assets/img/scene-tumbler.svg", desc:"Made by Mistress of Arts: an insulated handled tumbler in krewe purple, hand-finished with a gold rainbow, a winged unicorn crest, and a whole sky of stars. Sip lid on top, sparkle all the way down.", maker:"Handcrafted by Mistress of Arts \u00b7 The Sparklatory", sizes:["30 oz","40 oz"]},
   {id:"medallion",  name:"Krewe Medallion",         price:35,  img:"assets/img/scene-crystal.svg", desc:"Our signature throw: a gleaming unicorn crest medallion on a rainbow ribbon.",        sizes:["One size"]},
   {id:"beads",      name:"Rainbow Beads (set of 6)",price:18,  img:"assets/img/scene-stars.svg",   desc:"Six strands of shimmering rainbow beads to toss and share along the parade route.",   sizes:["One size"]},
   {id:"headband",   name:"Unicorn-Horn Headband",   price:22,  img:"assets/img/scene-horn.svg",    desc:"A glittering golden horn headband, ringed with stars - instant magic for any ride.",  sizes:["One size"]},
@@ -153,6 +167,7 @@ function buildGrid(){
     html+='<div class="pbody">';
     html+='<h3>'+p.name+'<\/h3>';
     html+='<div class="desc">'+p.desc+'<\/div>';
+    if(p.maker){html+='<div class="maker">\u2728 '+p.maker+'<\/div>';}
     html+='<div class="price">$'+p.price.toFixed(2)+'<\/div>';
     html+='<select id="sz-'+p.id+'">'+opts+'<\/select>';
     html+='<button class="btn btn-primary add" onclick="addToCart(\''+p.id+'\')">✨ Add to Cart<\/button>';
