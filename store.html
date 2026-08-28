@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="assets/img/logo-unicorn.png" />
 <title>Krewe of Unicorns · Shop</title>
-<meta name="description" content="Krewe of Unicorns gear: the Unicorn Sparkle Tumbler by Mistress of Arts, krewe medallions, rainbow beads, unicorn-horn headbands, member tees, glitter capes, enamel pins, and totes." />
+<meta name="description" content="Krewe of Unicorns shop: personalized flasks, glitter tumblers, koozies, mugs, krewe medallions, rainbow beads, unicorn-horn headbands, member tees, glitter capes, enamel pins, and totes." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=EB+Garamond:ital@0;1&display=swap" rel="stylesheet">
@@ -13,9 +13,11 @@
 <style>
 .shop-note{ background:rgba(236,208,126,.16); border:1px solid var(--gold); border-radius:12px; padding:12px 18px; text-align:center; font-size:15px; color:var(--green-900); max-width:760px; margin:0 auto; }
 .shop-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:24px; }
-.product{ background:#fff; border:1px solid rgba(168,128,28,.28); border-radius:16px; overflow:hidden; box-shadow:var(--shadow-sm); display:flex; flex-direction:column; transition:transform .15s, box-shadow .15s; }
+.product{ background:#fff; border:1px solid rgba(168,128,28,.28); border-radius:16px; overflow:hidden; box-shadow:var(--shadow-sm); display:flex; flex-direction:column; transition:transform .15s, box-shadow .15s; position:relative; }
 .product:hover{ transform:translateY(-4px); box-shadow:0 14px 34px rgba(76,29,149,.25); }
 .product .pimg{ aspect-ratio:1/1; background:#f3ead3 center/contain no-repeat; }
+.product .pimg.cover{ background-size:cover; background-position:center; }
+.product .badge{ position:absolute; top:10px; left:10px; z-index:2; background:linear-gradient(180deg,var(--gold-light),var(--gold)); color:#3a2c00; font-family:var(--display); font-size:11px; font-weight:700; letter-spacing:.5px; text-transform:uppercase; padding:4px 10px; border-radius:999px; border:1px solid var(--gold-deep); }
 .product .pbody{ padding:16px 18px 20px; display:flex; flex-direction:column; gap:8px; flex:1; }
 .product h3{ margin:0; color:var(--green-800); font-family:var(--display); font-size:19px; }
 .product .desc{ font-size:14px; color:var(--muted); flex:1; }
@@ -23,11 +25,19 @@
 .product select{ padding:8px 10px; border:1px solid rgba(168,128,28,.5); border-radius:9px; font-size:14px; }
 .product .add{ margin-top:4px; }
 .product .maker{ font-size:12.5px; color:var(--gold-deep); font-style:italic; letter-spacing:.2px; }
-.maker-card{ background:#fff; border:1px solid var(--gold); border-radius:16px; padding:22px 26px; max-width:760px; margin:34px auto 0; box-shadow:var(--shadow-sm); text-align:center; }
-.maker-card h3{ margin:0 0 4px; font-family:var(--display); font-size:23px; color:var(--green-800); }
-.maker-card .studio{ font-family:var(--display); font-size:15px; color:var(--gold-deep); letter-spacing:.6px; margin-bottom:10px; }
-.maker-card p{ margin:0 0 10px; font-size:15px; color:var(--muted); }
+.maker-card{ background:#fff; border:1px solid var(--gold); border-radius:16px; padding:28px 26px; max-width:760px; margin:40px auto 0; box-shadow:var(--shadow-sm); text-align:center; }
+.maker-card .studio{ font-family:var(--display); font-size:12px; letter-spacing:.22em; text-transform:uppercase; color:var(--gold-deep); margin-bottom:8px; }
+.maker-card h3{ margin:0 0 10px; font-family:var(--display); font-size:26px; color:var(--green-800); }
+.maker-card p{ margin:0 auto 10px; font-size:15px; color:var(--muted); max-width:520px; }
 .maker-card p:last-child{ margin-bottom:0; }
+.maker-card .handle{ font-size:14px; color:var(--green-800); }
+.maker-card form{ margin:18px auto 0; max-width:480px; text-align:left; display:grid; gap:8px; }
+.maker-card label{ font-family:var(--display); font-size:13px; color:var(--green-800); }
+.maker-card input,.maker-card textarea{ width:100%; box-sizing:border-box; padding:10px 12px; border:1px solid rgba(168,128,28,.5); border-radius:9px; font:inherit; }
+.maker-card .status{ font-size:14px; color:var(--green-800); min-height:1.2em; }
+.hero-cta{ margin-top:18px; display:flex; flex-wrap:wrap; gap:10px; justify-content:center; }
+.product .order-this{ margin-top:2px; background:#fff; color:var(--green-800); border:2px solid var(--green-800); }
+.product .order-this:hover{ background:#f2e9ff; }
 .cartbar{ position:fixed; right:18px; bottom:90px; z-index:60; }
 .cartbar button{ background:linear-gradient(180deg,var(--gold-light),var(--gold)); color:#3a2c00; border:2px solid var(--gold-deep); border-radius:999px; padding:12px 20px; font-family:var(--display); font-weight:700; cursor:pointer; box-shadow:0 8px 20px rgba(168,128,28,.45); font-size:15px; }
 .cart-panel{ position:fixed; inset:0; z-index:120; display:none; align-items:center; justify-content:center; background:rgba(76,29,149,.6); padding:20px; }
@@ -90,22 +100,36 @@
   </nav>
 <header class="page-head">
   <div class="ph-bg" style="background-image:url('assets/img/photos/parade-27.jpg')"></div>
-  <p class="eyebrow">Wear your purple &amp; gold</p>
+  <p class="eyebrow">Believe · Belong · Sparkle</p>
   <h1>Krewe Shop</h1>
-  <p class="sub">Medallions, rainbow beads, and glitter capes. Sparkle in the colors all year.</p>
+  <p class="sub">Sip in sparkle with personalized flasks, glitter tumblers, koozies & mugs — plus medallions, beads, and glitter capes.</p>
+  <p class="hero-cta">
+    <a class="btn btn-primary" href="https://ig.me/m/themistressofarts" target="_blank" rel="noopener noreferrer">Order from Mistress of Arts</a>
+    <a class="btn btn-outline" href="#order">Write an order request</a>
+  </p>
 </header>
 <main class="wrap">
-  <p class="shop-note">✨ <b>Sample shop.</b> These are concept products to show how a Krewe store could look; this is a demo site, so online ordering isn't live and nothing is actually charged. On a live Krewe &amp; Kin site, checkout would work instantly.</p>
-  <div class="section-title" style="margin-top:30px;"><h2>Krewe Gear</h2><p class="sub">Officially crested, Tampa-proud, and full of sparkle</p></div>
+  <p class="shop-note">✨ <b>Sample shop.</b> Browse the collection, then order the real handmade pieces from Mistress of Arts — the gold buttons open her Instagram messages.</p>
+  <div class="section-title" style="margin-top:30px;"><h2>Sip in Sparkle</h2><p class="sub">Flasks, tumblers, mugs & koozies — handmade by Mistress of Arts</p></div>
+  <div class="knot-divider"><span class="knot"></span></div>
+  <div class="shop-grid" id="shopGridDrinkware"></div>
+  <div class="maker-card" id="order">
+    <div class="studio">The Sparklatory · Tampa Bay</div>
+    <h3>Order from Mistress of Arts</h3>
+    <p>Custom tumblers, flasks, koozies, and Gasparilla krewe merch — handmade by Monica Rader. Tell her what you want; she confirms details, pricing, and pickup.</p>
+    <form id="orderForm" onsubmit="return submitOrder(event)">
+      <label for="orderName">Your name</label>
+      <input id="orderName" name="name" autocomplete="name" placeholder="Krewe name or first name" />
+      <label for="orderWant">What you’d like</label>
+      <textarea id="orderWant" name="want" rows="4" placeholder="e.g. 20oz glitter tumbler with Krewe of Unicorns crest, name on the back…"></textarea>
+      <button class="btn btn-primary" type="submit">Message @themistressofarts to order</button>
+      <p class="status" id="orderStatus">We’ll copy your request and open her Instagram messages so you can send it.</p>
+    </form>
+    <p class="handle">Or visit <a href="https://www.instagram.com/themistressofarts/" target="_blank" rel="noopener noreferrer">@themistressofarts</a> on Instagram.</p>
+  </div>
+  <div class="section-title" style="margin-top:48px;"><h2>Krewe Gear</h2><p class="sub">Officially crested, Tampa-proud, and full of sparkle</p></div>
   <div class="knot-divider"><span class="knot"></span></div>
   <div class="shop-grid" id="shopGrid"></div>
-  <div class="maker-card">
-    <h3>Welcome to Mistress of Arts &#127912;</h3>
-    <div class="studio">From the depths of The Sparklatory &#10024;</div>
-    <p>I bring your visions to life with bespoke treasures. I specialize in Gasparilla Krewe merchandise.</p>
-    <p>Whether for weddings, birthdays, decor, or any occasion, your dream is my blueprint.</p>
-    <p>Share your vision; let&#39;s create magic. &#128081;</p>
-  </div>
 </main>
 <div class="cartbar"><button id="cartBtn" onclick="openCart()">&#x1F6D2; Cart (<span id="cartCount">0</span>)</button></div>
 <div class="cart-panel" id="cartPanel">
@@ -113,8 +137,11 @@
     <h2>Your Cart</h2>
     <ul class="cart-items" id="cartItems"><li>Your cart is empty.</li></ul>
     <div class="cart-total" id="cartTotal"></div>
-    <div class="cart-msg">✨ This is a demo site, so checkout isn't live and nothing is actually charged. On a live Krewe &amp; Kin site, your order would go through instantly.</div>
-    <div class="btns" style="margin-top:14px;"><a class="btn btn-outline" href="#" onclick="closeCart();return false;">Keep shopping</a></div>
+    <div class="cart-msg">This cart doesn’t charge. Send the list to Mistress of Arts to place a real order.</div>
+    <div class="btns" style="margin-top:14px;">
+      <button class="btn btn-primary" type="button" onclick="sendCartOrder()">Send this order on Instagram</button>
+      <a class="btn btn-outline" href="#" onclick="closeCart();return false;">Keep shopping</a>
+    </div>
   </div>
 </div>
 <footer class="krewe-foot">
@@ -132,11 +159,13 @@
 <a href="videos.html">Videos</a>
 <a href="volunteer.html">Volunteer</a>
 <a href="store.html">Shop</a>
+<a href="store.html#order">Order</a>
 <a href="membership-application.html">Join</a>
 <a href="members.html">Members</a>
 </div>
   <div class="slainte">Sparkle on! 🦄🌈 Tampa Bay, Florida</div>
-  <div class="fine">&copy; Krewe of Unicorns. A Krewe &amp; Kin demo site · celebrating magic all year round.</div>
+  <p class="fine"><a href="https://ig.me/m/themistressofarts" target="_blank" rel="noopener noreferrer">Order handmade drinkware from Mistress of Arts · @themistressofarts</a></p>
+  <div class="fine">&copy; Krewe of Unicorns. A Krewe & Kin demo site · celebrating magic all year round.</div>
 </footer>
 <div class="krewe-music" id="krewePlayer">
   <audio id="kreweAudio" src="assets/audio/krewe-theme.wav" loop preload="none"></audio>
@@ -146,34 +175,47 @@
 <script src="assets/krewe.js" defer></script>
 <script>
 var PRODUCTS=[
-  {id:"tumbler",    name:"Unicorn Sparkle Tumbler",price:48,  img:"assets/img/scene-tumbler.svg", desc:"Made by Mistress of Arts: an insulated handled tumbler in krewe purple, hand-finished with a gold rainbow, a winged unicorn crest, and a whole sky of stars. Sip lid on top, sparkle all the way down.", maker:"Handcrafted by Mistress of Arts \u00b7 The Sparklatory", sizes:["30 oz","40 oz"]},
-  {id:"medallion",  name:"Krewe Medallion",         price:35,  img:"assets/img/scene-crystal.svg", desc:"Our signature throw: a gleaming unicorn crest medallion on a rainbow ribbon.",        sizes:["One size"]},
-  {id:"beads",      name:"Rainbow Beads (set of 6)",price:18,  img:"assets/img/scene-stars.svg",   desc:"Six strands of shimmering rainbow beads to toss and share along the parade route.",   sizes:["One size"]},
-  {id:"headband",   name:"Unicorn-Horn Headband",   price:22,  img:"assets/img/scene-horn.svg",    desc:"A glittering golden horn headband, ringed with stars - instant magic for any ride.",  sizes:["One size"]},
-  {id:"tee",        name:"Member Tee",              price:26,  img:"assets/img/scene-unicorn.svg", desc:"Soft violet tee with the Krewe of Unicorns crest - parade-day comfort all season.",   sizes:["S","M","L","XL","2XL"]},
-  {id:"cape",       name:"Glitter Cape",            price:64,  img:"assets/img/scene-ball.svg",    desc:"A flowing, iridescent glitter cape that catches every ray of light on the route.",    sizes:["S/M","L/XL"]},
-  {id:"pin",        name:"Enamel Pin",              price:12,  img:"assets/img/scene-castle.svg",  desc:"A hard-enamel unicorn crest pin for your jacket, bag, or hat. Collect them all.",      sizes:["One size"]},
-  {id:"tote",       name:"Krewe Tote",              price:20,  img:"assets/img/scene-meadow.svg",  desc:"Sturdy cotton tote with a rainbow-and-horn print - perfect for throws and finery.",   sizes:["One size"]}
+  {id:"flask", name:"Personalized Flask", price:36, img:"Flask KOU.jpg", fit:"cover", cat:"drinkware", badge:"New", maker:"Handcrafted by Mistress of Arts · The Sparklatory", desc:"Sip in sparkle! Bring a touch of magic to any gathering with this sleek, personalized flask. Crested with our rainbow unicorn and motto Believe, Belong, Sparkle — a truly enchanting accessory for celebrating with your krewe.", sizes:["6 oz"]},
+  {id:"glitter-tumbler", name:"20oz Glitter Tumbler", price:32, img:"20oz glitter tumbler.jpg", fit:"cover", cat:"drinkware", badge:"New", maker:"Handcrafted by Mistress of Arts · The Sparklatory", desc:"Sparkle on! Show off your krewe spirit with this dazzling 20oz glitter tumbler. Perfect for parades, events, and everyday use — customize with your krewe logo and names for a truly magical touch.", sizes:["20 oz"]},
+  {id:"rainbow-tumbler", name:"Rainbow Unicorn Tumbler", price:28, img:"20 oz tumbler.jpg", fit:"cover", cat:"drinkware", badge:"New", maker:"Handcrafted by Mistress of Arts · The Sparklatory", desc:"Bring a little radical joy to your day with our vibrant Krewe of Unicorns tumbler. Featuring our signature rainbow unicorn and motto Believe, Belong, Sparkle. Double-walled stainless steel — perfect for parades, events, or morning coffee. Available in three sizes to suit every thirst.", sizes:["12 oz","20 oz","30 oz"]},
+  {id:"mug", name:"Sparkle On! Mug", price:18, img:"krewe_of_unicorns_mug_wrap_mockup.png", fit:"cover", cat:"drinkware", badge:"New", maker:"Handcrafted by Mistress of Arts · The Sparklatory", desc:"A watercolor wrap of our official Krewe of Unicorns seal, gold constellations, and Sparkle on! along the handle. Ceramic — a daily sip of Tampa Bay magic.", sizes:["11 oz"]},
+  {id:"koozie-can", name:"Parade Can Cooler", price:10, img:"koozie1.jpg", fit:"cover", cat:"drinkware", badge:"New", maker:"Handcrafted by Mistress of Arts · The Sparklatory", desc:"Stay cool on parade day! A slim can cooler with our rainbow unicorn and gold motto Believe, Belong, Sparkle. Personalized koozies for your krewe — add your logo, names, and motto.", sizes:["Slim can"]},
+  {id:"koozie-flask", name:"Flask Koozie Sleeve", price:14, img:"Koozie.jpg", fit:"cover", cat:"drinkware", badge:"New", maker:"Handcrafted by Mistress of Arts · The Sparklatory", desc:"A neoprene flask sleeve printed with the Krewe of Unicorns crest, Tampa Bay · Est. 2020, and Believe, Belong, Sparkle. Keeps your flask snug on the route.", sizes:["Fits 6 oz flask"]},
+  {id:"medallion",  name:"Krewe Medallion",         price:35,  img:"assets/img/scene-crystal.svg", cat:"gear", desc:"Our signature throw: a gleaming unicorn crest medallion on a rainbow ribbon.",        sizes:["One size"]},
+  {id:"beads",      name:"Rainbow Beads (set of 6)",price:18,  img:"assets/img/scene-stars.svg",   cat:"gear", desc:"Six strands of shimmering rainbow beads to toss and share along the parade route.",   sizes:["One size"]},
+  {id:"headband",   name:"Unicorn-Horn Headband",   price:22,  img:"assets/img/scene-horn.svg",    cat:"gear", desc:"A glittering golden horn headband, ringed with stars - instant magic for any ride.",  sizes:["One size"]},
+  {id:"tee",        name:"Member Tee",              price:26,  img:"assets/img/scene-unicorn.svg", cat:"gear", desc:"Soft violet tee with the Krewe of Unicorns crest - parade-day comfort all season.",   sizes:["S","M","L","XL","2XL"]},
+  {id:"cape",       name:"Glitter Cape",            price:64,  img:"assets/img/scene-ball.svg",    cat:"gear", desc:"A flowing, iridescent glitter cape that catches every ray of light on the route.",    sizes:["S/M","L/XL"]},
+  {id:"pin",        name:"Enamel Pin",              price:12,  img:"assets/img/scene-castle.svg",  cat:"gear", desc:"A hard-enamel unicorn crest pin for your jacket, bag, or hat. Collect them all.",      sizes:["One size"]},
+  {id:"tote",       name:"Krewe Tote",              price:20,  img:"assets/img/scene-meadow.svg",  cat:"gear", desc:"Sturdy cotton tote with a rainbow-and-horn print - perfect for throws and finery.",   sizes:["One size"]}
 ];
 var cart={};
-function buildGrid(){
-  var g=document.getElementById("shopGrid");
+function renderGrid(cat, elId){
+  var g=document.getElementById(elId);
+  if(!g) return;
   var html="";
   for(var i=0;i<PRODUCTS.length;i++){
     var p=PRODUCTS[i];
+    if((p.cat||"gear")!==cat) continue;
     var opts="";for(var j=0;j<p.sizes.length;j++){opts+='<option>'+p.sizes[j]+'<\/option>';}
     html+='<div class="product">';
-    html+='<div class="pimg" style="background-image:url(\''+p.img+'\')"><\/div>';
+    if(p.badge) html+='<span class="badge">'+p.badge+'<\/span>';
+    html+='<div class="pimg'+(p.fit==="cover"?" cover":"")+'" style="background-image:url(\''+encodeURI(p.img)+'\')"><\/div>';
     html+='<div class="pbody">';
     html+='<h3>'+p.name+'<\/h3>';
     html+='<div class="desc">'+p.desc+'<\/div>';
-    if(p.maker){html+='<div class="maker">\u2728 '+p.maker+'<\/div>';}
+    if(p.maker) html+='<div class="maker">'+p.maker+'<\/div>';
     html+='<div class="price">$'+p.price.toFixed(2)+'<\/div>';
     html+='<select id="sz-'+p.id+'">'+opts+'<\/select>';
     html+='<button class="btn btn-primary add" onclick="addToCart(\''+p.id+'\')">✨ Add to Cart<\/button>';
+    if(p.maker) html+='<button class="btn btn-outline order-this" type="button" onclick="orderProduct(\''+p.id+'\')">Order this piece<\/button>';
     html+='<\/div><\/div>';
   }
   g.innerHTML=html;
+}
+function buildGrid(){
+  renderGrid("drinkware","shopGridDrinkware");
+  renderGrid("gear","shopGrid");
 }
 buildGrid();
 function addToCart(id){
@@ -191,13 +233,66 @@ function renderCart(){
   var ul=document.getElementById("cartItems");
   if(!keys.length){ul.innerHTML="<li>Your cart is empty.<\/li>";document.getElementById("cartTotal").textContent="";return;}
   var items="";
-  for(var i=0;i<keys.length;i++){var k=keys[i];items+="<li><span>"+cart[k].name+" ("+cart[k].size+") x"+cart[k].qty+"<\/span><span>$"+(cart[k].price*cart[k].qty).toFixed(2)+"<\/span><\/li>";}
+  for(var i=0;i<keys.length;i++){var k=keys[i];items+="<li><span>"+cart[k].name+" ("+cart[k].size+") x"+cart[k].qty+"</span><span>$"+(cart[k].price*cart[k].qty).toFixed(2)+"</span><\/li>";}
   ul.innerHTML=items;
   document.getElementById("cartTotal").textContent="Total: $"+keys.reduce(function(a,k){return a+cart[k].price*cart[k].qty;},0).toFixed(2);
 }
 function openCart(){renderCart();document.getElementById("cartPanel").classList.add("open");}
 function closeCart(){document.getElementById("cartPanel").classList.remove("open");}
 document.getElementById("cartPanel").addEventListener("click",function(e){if(e.target===this)closeCart();});
+var MISTRESS_DM="https://ig.me/m/themistressofarts";
+function buildOrderMessage(name, lines, notes){
+  var who=name&&name.trim()?"I'm "+name.trim()+". ":"";
+  var items=(lines||[]).map(function(l){
+    var size=l.size?" ("+l.size+")":"";
+    var qty=l.qty&&l.qty>1?" × "+l.qty:"";
+    return "• "+l.name+size+qty;
+  }).join("\n");
+  var parts=["Hi Mistress of Arts! "+who+"I'd like to order from the Krewe of Unicorns shop."];
+  if(items) parts.push(items);
+  if(notes&&notes.trim()&&notes.trim()!==items) parts.push(notes.trim());
+  parts.push("Please let me know availability and total. Thank you!");
+  return parts.join("\n\n");
+}
+function sendOrder(msg){
+  var copied=false;
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(msg).then(function(){}).catch(function(){});
+    copied=true;
+  }
+  window.open(MISTRESS_DM,"_blank","noopener,noreferrer");
+  return copied;
+}
+function orderProduct(id){
+  var p=PRODUCTS.filter(function(x){return x.id===id;})[0];
+  var sz=document.getElementById("sz-"+id).value;
+  sendOrder(buildOrderMessage("",[{name:p.name,size:sz,qty:1}],""));
+}
+function sendCartOrder(){
+  var keys=Object.keys(cart);
+  if(!keys.length){ window.open(MISTRESS_DM,"_blank","noopener,noreferrer"); return; }
+  var lines=keys.map(function(k){return {name:cart[k].name,size:cart[k].size,qty:cart[k].qty};});
+  sendOrder(buildOrderMessage("",lines,""));
+}
+function submitOrder(e){
+  e.preventDefault();
+  var name=document.getElementById("orderName").value;
+  var want=document.getElementById("orderWant").value;
+  var keys=Object.keys(cart);
+  var lines=want.trim()?[]:keys.map(function(k){return {name:cart[k].name,size:cart[k].size,qty:cart[k].qty};});
+  var copied=sendOrder(buildOrderMessage(name,lines,want));
+  document.getElementById("orderStatus").textContent=copied
+    ?"Order copied. Paste it in the Instagram message to place it."
+    :"Instagram is open — paste your note from the box above if it didn’t copy.";
+  return false;
+}
+(function prefillOrder(){
+  var keys=Object.keys(cart);
+  var el=document.getElementById("orderWant");
+  if(el&&!el.value&&keys.length){
+    el.value=keys.map(function(k){return "• "+cart[k].name+" ("+cart[k].size+") × "+cart[k].qty;}).join("\n");
+  }
+})();
 </script>
 </body>
 </html>
