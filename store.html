@@ -5,18 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="assets/img/logo-unicorn.png" />
 <title>Krewe of Unicorns · Shop</title>
-<meta name="description" content="Krewe of Unicorns shop: personalized flasks, glitter tumblers, koozies, mugs, krewe medallions, rainbow beads, unicorn-horn headbands, member tees, glitter capes, enamel pins, and totes." />
+<meta name="description" content="Krewe of Unicorns shop: personalized flasks, glitter tumblers, koozies, mugs, krewe medallions, rainbow beads, unicorn-horn headbands, member tees, glitter capes, enamel pins, totes.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=EB+Garamond:ital@0;1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/krewe.css" />
 <style>
-.shop-note{ background:rgba(236,208,126,.16); border:1px solid var(--gold); border-radius:12px; padding:12px 18px; text-align:center; font-size:15px; color:var(--green-900); max-width:760px; margin:0 auto; }
+.shop-note{ background:rgba(236,208,126,.16); border:1px solid var(--gold); border-radius:12px; padding:12px 18px; text-align:center; font-size:15px; color:var(--green-900); max-width:760px; margin:0 auto 30px; }
 .shop-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:24px; }
 .product{ background:#fff; border:1px solid rgba(168,128,28,.28); border-radius:16px; overflow:hidden; box-shadow:var(--shadow-sm); display:flex; flex-direction:column; transition:transform .15s, box-shadow .15s; position:relative; }
 .product:hover{ transform:translateY(-4px); box-shadow:0 14px 34px rgba(76,29,149,.25); }
-.product .pimg{ aspect-ratio:1/1; background:#f3ead3 center/contain no-repeat; }
-.product .pimg.cover{ background-size:cover; background-position:center; }
+.product .pimg{ aspect-ratio:1/1; background:#f3ead3; display:flex; align-items:center; justify-content:center; }
+.product .pimg img{ width:100%; height:100%; object-fit:contain; display:block; }
+.product .pimg.cover img{ object-fit:cover; }
 .product .badge{ position:absolute; top:10px; left:10px; z-index:2; background:linear-gradient(180deg,var(--gold-light),var(--gold)); color:#3a2c00; font-family:var(--display); font-size:11px; font-weight:700; letter-spacing:.5px; text-transform:uppercase; padding:4px 10px; border-radius:999px; border:1px solid var(--gold-deep); }
 .product .pbody{ padding:16px 18px 20px; display:flex; flex-direction:column; gap:8px; flex:1; }
 .product h3{ margin:0; color:var(--green-800); font-family:var(--display); font-size:19px; }
@@ -39,7 +40,7 @@
 .product .order-this{ margin-top:2px; background:#fff; color:var(--green-800); border:2px solid var(--green-800); }
 .product .order-this:hover{ background:#f2e9ff; }
 .cartbar{ position:fixed; right:18px; bottom:90px; z-index:60; }
-.cartbar button{ background:linear-gradient(180deg,var(--gold-light),var(--gold)); color:#3a2c00; border:2px solid var(--gold-deep); border-radius:999px; padding:12px 20px; font-family:var(--display); font-weight:700; cursor:pointer; box-shadow:0 8px 20px rgba(168,128,28,.45); font-size:15px; }
+.cartbar button{ background:linear-gradient(180deg,var(--gold-light),var(--gold)); color:#3a2c00; border:2px solid var(--gold-deep); border-radius:999px; padding:12px 20px; font-family:var(--display); font-size:14px; font-weight:600; cursor:pointer; }
 .cart-panel{ position:fixed; inset:0; z-index:120; display:none; align-items:center; justify-content:center; background:rgba(76,29,149,.6); padding:20px; }
 .cart-panel.open{ display:flex; }
 .cart-card{ background:#fff; border-radius:16px; max-width:440px; width:100%; padding:24px; border:1px solid var(--gold); }
@@ -120,10 +121,10 @@
     <form id="orderForm" onsubmit="return submitOrder(event)">
       <label for="orderName">Your name</label>
       <input id="orderName" name="name" autocomplete="name" placeholder="Krewe name or first name" />
-      <label for="orderWant">What you’d like</label>
+      <label for="orderWant">What you'd like</label>
       <textarea id="orderWant" name="want" rows="4" placeholder="e.g. 20oz glitter tumbler with Krewe of Unicorns crest, name on the back…"></textarea>
       <button class="btn btn-primary" type="submit">Message @themistressofarts to order</button>
-      <p class="status" id="orderStatus">We’ll copy your request and open her Instagram messages so you can send it.</p>
+      <p class="status" id="orderStatus">We'll copy your request and open her Instagram messages so you can send it.</p>
     </form>
     <p class="handle">Or visit <a href="https://www.instagram.com/themistressofarts/" target="_blank" rel="noopener noreferrer">@themistressofarts</a> on Instagram.</p>
   </div>
@@ -137,7 +138,7 @@
     <h2>Your Cart</h2>
     <ul class="cart-items" id="cartItems"><li>Your cart is empty.</li></ul>
     <div class="cart-total" id="cartTotal"></div>
-    <div class="cart-msg">This cart doesn’t charge. Send the list to Mistress of Arts to place a real order.</div>
+    <div class="cart-msg">This cart doesn't charge. Send the list to Mistress of Arts to place a real order.</div>
     <div class="btns" style="margin-top:14px;">
       <button class="btn btn-primary" type="button" onclick="sendCartOrder()">Send this order on Instagram</button>
       <a class="btn btn-outline" href="#" onclick="closeCart();return false;">Keep shopping</a>
@@ -184,9 +185,9 @@ var PRODUCTS=[
   {id:"medallion",  name:"Krewe Medallion",         price:35,  img:"assets/img/scene-crystal.svg", cat:"gear", desc:"Our signature throw: a gleaming unicorn crest medallion on a rainbow ribbon.",        sizes:["One size"]},
   {id:"beads",      name:"Rainbow Beads (set of 6)",price:18,  img:"assets/img/scene-stars.svg",   cat:"gear", desc:"Six strands of shimmering rainbow beads to toss and share along the parade route.",   sizes:["One size"]},
   {id:"headband",   name:"Unicorn-Horn Headband",   price:22,  img:"assets/img/scene-horn.svg",    cat:"gear", desc:"A glittering golden horn headband, ringed with stars - instant magic for any ride.",  sizes:["One size"]},
-  {id:"tee",        name:"Member Tee",              price:26,  img:"assets/img/scene-unicorn.svg", cat:"gear", desc:"Soft violet tee with the Krewe of Unicorns crest - parade-day comfort all season.",   sizes:["S","M","L","XL","2XL"]},
+  {id:"tee",        name:"Member Tee",              price:26,  img:"krewe of unicorn t-shirt.jpg", cat:"gear", desc:"Soft violet tee with the Krewe of Unicorns crest - parade-day comfort all season.",   sizes:["S","M","L","XL","2XL"]},
   {id:"cape",       name:"Glitter Cape",            price:64,  img:"assets/img/scene-ball.svg",    cat:"gear", desc:"A flowing, iridescent glitter cape that catches every ray of light on the route.",    sizes:["S/M","L/XL"]},
-  {id:"pin",        name:"Enamel Pin",              price:12,  img:"assets/img/scene-castle.svg",  cat:"gear", desc:"A hard-enamel unicorn crest pin for your jacket, bag, or hat. Collect them all.",      sizes:["One size"]},
+  {id:"pin",        name:"Enamel Pin",              price:12,  img:"krewe of unicorns pin.jpg",    cat:"gear", desc:"A hard-enamel unicorn crest pin for your jacket, bag, or hat. Collect them all.",      sizes:["One size"]},
   {id:"tote",       name:"Krewe Tote",              price:20,  img:"assets/img/scene-meadow.svg",  cat:"gear", desc:"Sturdy cotton tote with a rainbow-and-horn print - perfect for throws and finery.",   sizes:["One size"]}
 ];
 var cart={};
@@ -200,7 +201,7 @@ function renderGrid(cat, elId){
     var opts="";for(var j=0;j<p.sizes.length;j++){opts+='<option>'+p.sizes[j]+'<\/option>';}
     html+='<div class="product">';
     if(p.badge) html+='<span class="badge">'+p.badge+'<\/span>';
-    html+='<div class="pimg'+(p.fit==="cover"?" cover":"")+'" style="background-image:url(\''+encodeURI(p.img)+'\')"><\/div>';
+    html+='<div class="pimg'+(p.fit==="cover"?" cover":"")+'""><img src="'+encodeURI(p.img)+'" alt="'+p.name+'"><\/div>';
     html+='<div class="pbody">';
     html+='<h3>'+p.name+'<\/h3>';
     html+='<div class="desc">'+p.desc+'<\/div>';
@@ -283,7 +284,7 @@ function submitOrder(e){
   var copied=sendOrder(buildOrderMessage(name,lines,want));
   document.getElementById("orderStatus").textContent=copied
     ?"Order copied. Paste it in the Instagram message to place it."
-    :"Instagram is open — paste your note from the box above if it didn’t copy.";
+    :"Instagram is open — paste your note from the box above if it didn't copy.";
   return false;
 }
 (function prefillOrder(){
