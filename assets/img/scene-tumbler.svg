@@ -1,0 +1,200 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Purple and gold Krewe of Unicorns tumbler with a handle">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#f7f0ff"/><stop offset="1" stop-color="#efe3d0"/>
+  </linearGradient>
+  <linearGradient id="body" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#3b0f6e"/><stop offset="0.18" stop-color="#6d28d9"/>
+    <stop offset="0.46" stop-color="#8b46f0"/><stop offset="0.72" stop-color="#5b1aa8"/>
+    <stop offset="1" stop-color="#2a0a52"/>
+  </linearGradient>
+  <linearGradient id="bodyLow" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#330d60"/><stop offset="0.2" stop-color="#5b1aa8"/>
+    <stop offset="0.5" stop-color="#7c3aed"/><stop offset="0.8" stop-color="#4a1490"/>
+    <stop offset="1" stop-color="#240848"/>
+  </linearGradient>
+  <linearGradient id="steel" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#8e94a0"/><stop offset="0.22" stop-color="#e9ecf2"/>
+    <stop offset="0.5" stop-color="#b9bfc9"/><stop offset="0.78" stop-color="#eef1f6"/>
+    <stop offset="1" stop-color="#7f8593"/>
+  </linearGradient>
+  <linearGradient id="glass" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#c6d4e8" stop-opacity="0.85"/>
+    <stop offset="0.45" stop-color="#eef4ff" stop-opacity="0.72"/>
+    <stop offset="1" stop-color="#aebdd4" stop-opacity="0.85"/>
+  </linearGradient>
+  <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#f6e3a6"/><stop offset="0.45" stop-color="#ecd07e"/>
+    <stop offset="1" stop-color="#a8801c"/>
+  </linearGradient>
+  <linearGradient id="uhorn" x1="0" y1="1" x2="1" y2="0">
+    <stop offset="0" stop-color="#c9971a"/><stop offset="0.5" stop-color="#ffe694"/>
+    <stop offset="1" stop-color="#fff6d8"/>
+  </linearGradient>
+  <linearGradient id="uface" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#efe6ff"/>
+  </linearGradient>
+  <linearGradient id="umane" x1="0" y1="0" x2="0.9" y2="1">
+    <stop offset="0" stop-color="#f9a8d4"/><stop offset="0.35" stop-color="#ec4899"/>
+    <stop offset="0.62" stop-color="#8b5cf6"/><stop offset="1" stop-color="#22d3ee"/>
+  </linearGradient>
+  <linearGradient id="umane2" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#c4b5fd"/><stop offset="0.5" stop-color="#a78bfa"/>
+    <stop offset="1" stop-color="#67e8f9"/>
+  </linearGradient>
+  <linearGradient id="wing" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#dcd0f5"/>
+  </linearGradient>
+  <radialGradient id="glow" cx="0.5" cy="0.45" r="0.6">
+    <stop offset="0" stop-color="#ffffff" stop-opacity="0.55"/>
+    <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+  </radialGradient>
+
+  <g id="st"><path d="M0,-10 L2.35,-3.24 L9.51,-3.09 L3.81,1.24 L5.88,8.09 L0,4 L-5.88,8.09 L-3.81,1.24 L-9.51,-3.09 L-2.35,-3.24 Z"/></g>
+  <g id="sp"><path d="M0,-12 C1.2,-4 4,-1.2 12,0 C4,1.2 1.2,4 0,12 C-1.2,4 -4,1.2 -12,0 C-4,-1.2 -1.2,-4 0,-12 Z"/></g>
+
+  <!-- left-facing unicorn head, drawn in the site emblem's 200x200 coordinate space -->
+  <g id="uhead">
+    <path d="M118 70 C 150 74 160 108 150 146 C 146 128 138 116 126 112
+             C 140 126 138 150 122 168 C 122 146 116 126 104 120
+             C 118 132 116 152 104 166 C 106 144 100 122 96 112 Z" fill="url(#umane)"/>
+    <path d="M112 66 C 138 70 146 98 138 128 C 134 112 128 104 118 102
+             C 128 114 126 134 114 150 C 116 130 110 114 100 110 Z" fill="url(#umane2)" opacity="0.9"/>
+    <path d="M96 78 C 108 84 108 98 98 108 C 104 96 100 86 92 84 Z" fill="url(#umane)" opacity="0.95"/>
+    <path d="M50 120 C 46 112 50 103 60 98 C 68 93 76 88 84 83 C 89 80 93 79 97 79
+             C 106 80 113 86 118 97 C 124 110 126 132 123 153 C 121 165 119 172 116 178
+             L 96 178 C 93 168 90 157 88 148 C 86 139 82 132 73 128
+             C 66 125 58 124 52 122 Z" fill="url(#uface)" stroke="#d9c7ff" stroke-width="1"/>
+    <path d="M101 80 C 106 70 112 60 119 54 C 118 66 116 78 111 88 C 108 84 104 82 101 80 Z"
+          fill="url(#uface)" stroke="#d9c7ff" stroke-width="0.8"/>
+    <path d="M105 78 C 108 71 112 65 116 61 C 115 69 113 77 110 83 C 108 81 106 79 105 78 Z" fill="#e9d5ff"/>
+    <path d="M84 82 L104 20 L94 84 Z" fill="url(#uhorn)" stroke="#c9971a" stroke-width="1.2"/>
+    <g stroke="#c9971a" stroke-width="1.1" opacity="0.65" fill="none">
+      <path d="M89 74 L97 71"/><path d="M90 64 L98 61"/><path d="M92 52 L99 50"/>
+      <path d="M95 40 L100 39"/><path d="M97 30 L101 30"/>
+    </g>
+    <path d="M104 16 l1.4 3.6 3.8 .3 -2.9 2.4 .9 3.7 -3.2-2 -3.2 2 .9-3.7 -2.9-2.4 3.8-.3z" fill="#fff6d8"/>
+    <circle cx="74" cy="106" r="3.4" fill="#2a0a52"/>
+    <circle cx="75.2" cy="104.8" r="1.1" fill="#fff"/>
+    <path d="M55 116 C 53 115 52 117 54 118 C 56 119 57 117 55 116 Z" fill="#4c1d95"/>
+  </g>
+
+  <clipPath id="clipUp"><path d="M258,232 L562,232 L548,556 L272,556 Z"/></clipPath>
+  <clipPath id="clipLow"><path d="M292,580 L528,580 L516,700 L304,700 Z"/></clipPath>
+</defs>
+
+<rect width="800" height="800" fill="url(#bg)"/>
+<ellipse cx="400" cy="420" rx="330" ry="330" fill="url(#glow)"/>
+<ellipse cx="400" cy="726" rx="205" ry="26" fill="#4c1d95" opacity="0.16"/>
+
+<!-- handle -->
+<path d="M556,272 C672,268 712,338 706,404 C700,470 654,506 552,506"
+      fill="none" stroke="#6f7583" stroke-width="34" stroke-linecap="round"/>
+<path d="M556,272 C666,268 704,338 698,404 C692,468 650,500 552,500"
+      fill="none" stroke="url(#steel)" stroke-width="24" stroke-linecap="round"/>
+
+<!-- lid -->
+<path d="M262,178 L272,150 L528,150 L538,178 Z" fill="url(#glass)"/>
+<rect x="252" y="176" width="296" height="52" rx="10" fill="url(#steel)"/>
+<rect x="252" y="176" width="296" height="12" rx="6" fill="#ffffff" opacity="0.4"/>
+<rect x="318" y="120" width="150" height="40" rx="19" fill="#1b1b21"/>
+<rect x="330" y="128" width="126" height="9" rx="5" fill="#3a3a44"/>
+
+<!-- upper body -->
+<path d="M258,226 L562,226 L548,560 L272,560 Z" fill="url(#body)"/>
+<g clip-path="url(#clipUp)">
+  <rect x="250" y="226" width="16" height="340" fill="#ffffff" opacity="0.10"/>
+  <rect x="300" y="226" width="10" height="340" fill="#ffffff" opacity="0.07"/>
+  <rect x="470" y="226" width="12" height="340" fill="#ffffff" opacity="0.08"/>
+
+  <!-- winged-unicorn crest -->
+  <g transform="translate(306,232) scale(0.66)">
+    <path d="M112 118 C 140 96 178 92 202 104 C 184 110 170 118 160 128
+             C 178 124 196 128 206 138 C 188 140 170 148 158 160
+             C 172 160 186 166 192 176 C 168 174 142 168 122 156 Z"
+          fill="url(#wing)" stroke="#c9971a" stroke-width="1.6" opacity="0.95"/>
+    <use href="#uhead"/>
+  </g>
+
+  <!-- rainbow -->
+  <g fill="none" stroke-linecap="round">
+    <path d="M262,500 A140,140 0 0 1 542,500" stroke="url(#gold)" stroke-width="26"/>
+    <path d="M290,500 A112,112 0 0 1 514,500" stroke="#f3e7ff" stroke-width="24"/>
+    <path d="M316,500 A86,86 0 0 1 488,500" stroke="#c084fc" stroke-width="24"/>
+    <path d="M342,500 A60,60 0 0 1 462,500" stroke="url(#gold)" stroke-width="24"/>
+  </g>
+  <g fill="url(#gold)">
+    <ellipse cx="278" cy="504" rx="48" ry="30"/><ellipse cx="248" cy="512" rx="34" ry="22"/>
+    <ellipse cx="526" cy="504" rx="48" ry="30"/><ellipse cx="556" cy="512" rx="34" ry="22"/>
+  </g>
+  <g fill="#ffffff">
+    <ellipse cx="284" cy="410" rx="36" ry="23"/><ellipse cx="254" cy="420" rx="25" ry="17"/>
+    <ellipse cx="524" cy="398" rx="30" ry="20"/>
+  </g>
+
+  <!-- stars & sparkles on the upper band -->
+  <g fill="url(#gold)">
+    <use href="#st" transform="translate(300,268) scale(1.5)"/>
+    <use href="#st" transform="translate(508,250) scale(1.2)"/>
+    <use href="#st" transform="translate(286,332) scale(1.0)"/>
+    <use href="#st" transform="translate(524,312) scale(1.4)"/>
+    <use href="#sp" transform="translate(330,406) scale(0.8)"/>
+    <use href="#sp" transform="translate(420,242) scale(0.7)"/>
+    <use href="#sp" transform="translate(282,430) scale(0.9)"/>
+    <use href="#sp" transform="translate(530,424) scale(0.8)"/>
+  </g>
+  <g fill="#ffffff" opacity="0.9">
+    <use href="#st" transform="translate(340,244) scale(1.0)"/>
+    <use href="#st" transform="translate(266,300) scale(0.8)"/>
+    <use href="#st" transform="translate(538,276) scale(0.9)"/>
+    <use href="#sp" transform="translate(468,414) scale(0.6)"/>
+  </g>
+  <g fill="#e879f9" opacity="0.9">
+    <path d="M474,384 C474,374 488,372 490,382 C492,372 506,374 506,384 C506,396 490,406 490,406 C490,406 474,396 474,384 Z"/>
+  </g>
+</g>
+
+<!-- shoulder / taper -->
+<path d="M272,556 L548,556 L528,584 L292,584 Z" fill="#2b0a55"/>
+<path d="M272,556 L548,556 L544,566 L276,566 Z" fill="#ffffff" opacity="0.14"/>
+
+<!-- lower body -->
+<path d="M292,578 L528,578 L516,702 L304,702 Z" fill="url(#bodyLow)"/>
+<g clip-path="url(#clipLow)">
+  <rect x="290" y="578" width="12" height="130" fill="#ffffff" opacity="0.10"/>
+  <rect x="452" y="578" width="10" height="130" fill="#ffffff" opacity="0.08"/>
+
+  <!-- unicorn head -->
+  <g transform="translate(270,584) scale(0.78)"><use href="#uhead"/></g>
+
+  <!-- lower stars, sparkles & hearts -->
+  <g fill="url(#gold)">
+    <use href="#st" transform="translate(462,616) scale(2.0)"/>
+    <use href="#st" transform="translate(508,676) scale(1.2)"/>
+    <use href="#sp" transform="translate(414,594) scale(0.9)"/>
+    <use href="#sp" transform="translate(448,672) scale(1.0)"/>
+    <use href="#sp" transform="translate(310,592) scale(0.8)"/>
+  </g>
+  <g fill="#ffffff" opacity="0.9">
+    <use href="#st" transform="translate(496,596) scale(0.8)"/>
+    <use href="#sp" transform="translate(420,646) scale(0.7)"/>
+  </g>
+  <g fill="#e879f9" opacity="0.9">
+    <path d="M486,586 C486,578 497,576 499,584 C501,576 512,578 512,586 C512,596 499,604 499,604 C499,604 486,596 486,586 Z"/>
+    <path d="M356,672 C356,666 365,664 366,671 C367,664 376,666 376,672 C376,680 366,686 366,686 C366,686 356,680 356,672 Z"/>
+  </g>
+</g>
+
+<!-- base -->
+<path d="M300,698 L520,698 L512,730 L308,730 Z" fill="#1f0740"/>
+<path d="M300,698 L520,698 L518,708 L302,708 Z" fill="#ffffff" opacity="0.12"/>
+<rect x="306" y="726" width="208" height="10" rx="5" fill="#150430" opacity="0.9"/>
+
+<!-- ambient sparkle -->
+<g fill="#ecd07e" opacity="0.65">
+  <use href="#sp" transform="translate(140,214) scale(1.3)"/>
+  <use href="#sp" transform="translate(694,600) scale(1.1)"/>
+  <use href="#st" transform="translate(112,520) scale(1.0)"/>
+  <use href="#st" transform="translate(662,132) scale(1.2)"/>
+</g>
+</svg>
