@@ -201,7 +201,7 @@ function renderGrid(cat, elId){
     var opts="";for(var j=0;j<p.sizes.length;j++){opts+='<option>'+p.sizes[j]+'<\/option>';}
     html+='<div class="product">';
     if(p.badge) html+='<span class="badge">'+p.badge+'<\/span>';
-    html+='<div class="pimg'+(p.fit==="cover"?" cover":"")+'""><img src="'+encodeURI(p.img)+'" alt="'+p.name+'"><\/div>';
+    html+='<div class="pimg'+(p.fit==="cover"?" cover":"")+'"><img src="'+encodeURI(p.img)+'" alt="'+p.name+'"><\/div>';
     html+='<div class="pbody">';
     html+='<h3>'+p.name+'<\/h3>';
     html+='<div class="desc">'+p.desc+'<\/div>';
