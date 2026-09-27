@@ -19,6 +19,9 @@ same engine, completely different soul.
   RSVPs, engagement, and more)
 - **Join** — membership application
 - Floating music player, animated sparkle field, responsive nav, scroll reveals
+- **Member App** (`app/`) — an installable Android member app (Progressive Web App):
+  events & RSVPs, krewe chat, directory, parade-day hub, dues and a digital member card.
+  Open `app/get.html` for a QR code to install it. See `app/README.md`.
 
 ## Demo data (no backend)
 Every dynamic screen is populated with **baked-in sample data** and every form is
