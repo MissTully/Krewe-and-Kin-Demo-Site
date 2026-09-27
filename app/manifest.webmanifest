@@ -1,0 +1,29 @@
+{
+  "id": "./index.html",
+  "name": "Krewe of Unicorns · Member App",
+  "short_name": "Unicorns",
+  "description": "The member app for the Krewe of Unicorns (a fictional krewe): events, RSVPs, krewe chat, member directory, parade-day hub, dues, and your digital membership card. A Krewe & Kin sample app for demonstration.",
+  "lang": "en-US",
+  "dir": "ltr",
+  "start_url": "./index.html#home",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "portrait",
+  "background_color": "#1a0638",
+  "theme_color": "#1a0638",
+  "categories": ["social", "lifestyle", "entertainment"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/maskable-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "icons/badge-96.png", "sizes": "96x96", "type": "image/png", "purpose": "monochrome" }
+  ],
+  "shortcuts": [
+    { "name": "My Member Card", "short_name": "Member Card", "url": "./index.html#card", "icons": [{ "src": "icons/shortcut-96.png", "sizes": "96x96", "type": "image/png" }] },
+    { "name": "Upcoming Events", "short_name": "Events", "url": "./index.html#events", "icons": [{ "src": "icons/shortcut-96.png", "sizes": "96x96", "type": "image/png" }] },
+    { "name": "Krewe Chat", "short_name": "Chat", "url": "./index.html#herd", "icons": [{ "src": "icons/shortcut-96.png", "sizes": "96x96", "type": "image/png" }] },
+    { "name": "Parade Day Hub", "short_name": "Parade", "url": "./index.html#parade", "icons": [{ "src": "icons/shortcut-96.png", "sizes": "96x96", "type": "image/png" }] }
+  ]
+}

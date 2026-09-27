@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Get the Krewe of Unicorns App</title>
+  <meta name="description" content="Scan to install the Krewe of Unicorns sample member app on an Android phone." />
+  <link rel="icon" type="image/png" href="icons/icon-192.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{ --bg:#12042a; --text:#f6efff; --text-2:#c9b8ec; --gold:#f5c542; --line:rgba(255,255,255,.14);
+      --rainbow:linear-gradient(90deg,#ff6b6b,#ffb84d,#ffe066,#5eead4,#4cc9f0,#8b5cf6,#ec4899); }
+    *{ box-sizing:border-box; }
+    body{ margin:0; min-height:100vh; font-family:"Plus Jakarta Sans",system-ui,sans-serif; color:var(--text); line-height:1.6;
+      background:radial-gradient(600px 400px at 50% 0%, rgba(236,72,153,.35), transparent 70%), linear-gradient(180deg,#2a0a52,var(--bg)); }
+    main{ max-width:880px; margin:0 auto; padding:40px 16px 56px; display:grid; gap:32px; grid-template-columns:1fr; align-items:center; }
+    @media (min-width:760px){ main{ grid-template-columns:1.1fr .9fr; padding-top:72px; } }
+    .logo{ width:96px; border-radius:24px; box-shadow:0 16px 40px rgba(236,72,153,.4); }
+    .eyebrow{ margin:18px 0 0; font-size:12px; letter-spacing:.22em; text-transform:uppercase; color:#ffe694; font-weight:700; }
+    h1{ font-family:Cinzel,Georgia,serif; font-size:clamp(28px,6vw,42px); line-height:1.15; margin:6px 0 10px; }
+    p{ color:var(--text-2); margin:0 0 12px; }
+    ol{ padding-left:22px; color:var(--text-2); } li{ margin:6px 0; } b{ color:var(--text); }
+    .btn{ display:inline-block; margin-top:8px; padding:14px 24px; border-radius:999px; font-weight:700; text-decoration:none;
+      background:linear-gradient(180deg,#ffe28a,#f5c542 55%,#d9a52a); color:#2a0a52; }
+    .qr-card{ background:rgba(255,255,255,.06); border:1px solid var(--line); border-radius:28px; padding:24px; text-align:center; }
+    .qr{ background:#fff; border-radius:20px; padding:14px; width:min(260px,100%); margin:0 auto 12px; }
+    .qr svg{ width:100%; height:auto; display:block; }
+    .rainbow{ height:4px; border-radius:4px; background:var(--rainbow); margin:16px 0; }
+    small{ color:var(--text-2); font-size:13px; }
+    code{ word-break:break-all; color:#ffe694; }
+  </style>
+</head>
+<body>
+  <main>
+    <section>
+      <img class="logo" src="icons/icon-512.png" alt="Krewe of Unicorns app icon" />
+      <p class="eyebrow">Sample member app</p>
+      <h1>Get the Krewe of Unicorns app</h1>
+      <p>Events and RSVPs, krewe chat, the member directory, a parade-day hub, dues and a digital membership card, all on your home screen.</p>
+      <div class="rainbow"></div>
+      <p><b>On an Android phone:</b></p>
+      <ol>
+        <li>Scan the code with the phone camera, or open the link in <b>Chrome</b>.</li>
+        <li>Tap <b>Install</b> in the app's banner, or the <b>⋮ menu → Add to Home screen</b>.</li>
+        <li>Open the unicorn icon from your home screen and tap <b>Enter the Herd</b>.</li>
+      </ol>
+      <a class="btn" href="index.html">Open the app 🦄</a>
+    </section>
+    <section class="qr-card">
+      <div class="qr" id="qr" role="img" aria-label="QR code linking to the app"></div>
+      <small>Scan to open on your phone</small><br />
+      <code id="appUrl"></code>
+      <div class="rainbow"></div>
+      <small>A Krewe &amp; Kin demo. The Krewe of Unicorns is fictional.</small>
+    </section>
+  </main>
+  <script src="vendor/qrcode.js"></script>
+  <script>
+    // The QR code always points at wherever this page is hosted.
+    const url = new URL("index.html", location.href).href;
+    document.getElementById("appUrl").textContent = url;
+    const qr = qrcode(0, "M");
+    qr.addData(url);
+    qr.make();
+    document.getElementById("qr").innerHTML = qr.createSvgTag({ cellSize: 4, margin: 2, scalable: true });
+  </script>
+</body>
+</html>
